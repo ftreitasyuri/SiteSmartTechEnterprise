@@ -1,46 +1,46 @@
 <template>
-  <nav class="bg-primary text-white p-4">
-    <!-- Container Responsivo -->
-    <div class=" mx-auto flex items-center justify-between
-                
-    ">
-      <!-- Logo -->
-      
-        <img class="w-32 md:w-40 md:h-30 lg:w-52"
-        src="../assets/images/logoTech.png" alt="Logotipo">
-      
+  <nav class="bg-primary text-white flex items-center border-b-2 justify-between sm:p-4
+                          
+              
+  ">
+    <!-- Logo -->
+    <div>
+      <img class="w-32 md:w-40 md:h-30 lg:w-52" src="../assets/images/logoTech.png" alt="Logotipo">
+    </div>
 
-      <!-- Menu (Desktop) -->
-      <ul class="hidden md:flex space-x-4
-      lg:text-3xl md:text-3xl
-      ">
-        <li><a href="#" class="hover:text-gray-200">Home</a></li>
-        <li><a href="#" class="hover:text-gray-200">Serviços</a></li>
-        <li><a href="#" class="hover:text-gray-200">Contato</a></li>
-      </ul>
+    <!-- Menu (Desktop) -->
+    <ul class="hidden sm:flex space-x-4 text-xl sm:text-2xl">
+      <li class="my-4 mx-4"><router-link to="/" class="hover:text-gray-200">Home</router-link></li>
+      <li class="my-4 mx-4"><router-link to="/about" class="hover:text-gray-200">Sobre Nós</router-link></li>
+      <li class="my-4 mx-4"><router-link to="/contact" class="hover:text-gray-200">Contate-nos</router-link></li>
+    </ul>
 
-      <!-- Botão Menu (Mobile) -->
+    <!-- Botão do menu mobile -->
+    
       <button
+        class="block sm:hidden flex-end text-2xl focus:outline-none z-10"
         @click="toggleMenu"
-        class="block md:hidden text-white focus:outline-none z-10"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
+        <i class="fa-solid fa-bars m-4"></i> 
       </button>
-    </div>
+    
 
-    <!-- Menu Mobile -->
-    <div
-      v-show="menuOpen"
-      class="md:hidden mt-4 bg-primary space-y-2 p-4 rounded-lg"
+    <!-- Menu (Mobile) -->
+    <ul
+      :class="menuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full' "
+      class="flex-row w-screen text-xl z-10 bg-primary h-screen border
+             absolute top-0 left-0 transition-all duration-500 ease-in-out"
     >
-      <a href="#" class="block hover:text-gray-200">Home</a>
-      <a href="#" class="block hover:text-gray-200">Serviços</a>
-      <a href="#" class="block hover:text-gray-200">Contato</a>
-    </div>
+      <li class="my-4 mx-4" @click="backMenu">
+        <a href="#"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+      </li>
+      <li class="my-4 mx-4"><router-link to="/" class="hover:text-gray-200">Home</router-link></li>
+      <li class="my-4 mx-4"><router-link to="/about" class="hover:text-gray-200">Sobre Nós</router-link></li>
+      <li class="my-4 mx-4"><router-link to="/contact" class="hover:text-gray-200">Contate-nos</router-link></li>
+    </ul>
   </nav>
 </template>
+
 <script>
 export default {
   name: "Navbar",
@@ -51,7 +51,10 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.menuOpen = !this.menuOpen;
+      this.menuOpen = !this.menuOpen; // Alterna entre abrir e fechar o menu
+    },
+    backMenu() {
+      this.menuOpen = false; // Fecha o menu ao clicar no botão "voltar"
     },
   },
 };
