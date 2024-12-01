@@ -5,7 +5,9 @@
   ">
     <!-- Logo -->
     <div>
-      <img class="w-32 md:w-40 md:h-30 lg:w-52" src="../assets/images/logoTech.png" alt="Logotipo">
+      <router-link to="/">
+        <img class="w-32 md:w-40 md:h-30 lg:w-52" src="../assets/images/logoTech.png" alt="Logotipo">
+      </router-link>
     </div>
 
     <!-- Menu (Desktop) -->
@@ -34,9 +36,9 @@
       <li class="my-4 mx-4" @click="backMenu">
         <a href="#"><i class="fa-solid fa-arrow-rotate-left"></i></a>
       </li>
-      <li class="my-4 mx-4"><router-link to="/" class="hover:text-gray-200">Home</router-link></li>
-      <li class="my-4 mx-4"><router-link to="/about" class="hover:text-gray-200">Sobre Nós</router-link></li>
-      <li class="my-4 mx-4"><router-link to="/contact" class="hover:text-gray-200">Contate-nos</router-link></li>
+      <li class="my-4 mx-4"><router-link to="/" class="hover:text-gray-200" @click="backMenu">Home</router-link></li>
+      <li class="my-4 mx-4"><router-link to="/about" class="hover:text-gray-200"  @click="backMenu">Sobre Nós</router-link></li>
+      <li class="my-4 mx-4"><router-link to="/contact" class="hover:text-gray-200"  @click="backMenu">Contate-nos</router-link></li>
     </ul>
   </nav>
 </template>

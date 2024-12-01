@@ -8,9 +8,9 @@
             
                    lg:text-3xl
             ">
-                <li><a href="">Facebook</a></li>
-                <li><a href="">Instagram</a></li>
-                <li><a href="">LinkedIn</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/yuri-queiroz-77552419a/">Facebook</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/yuri-queiroz-77552419a/">Instagram</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/yuri-queiroz-77552419a/">LinkedIn</a></li>
             </ul>
         </div>
         
